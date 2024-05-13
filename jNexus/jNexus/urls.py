@@ -25,12 +25,12 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 from rest_framework.routers import DefaultRouter
-from myapp.views import ProductViewSet
+from Product.views import ProductViewSet
 
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Episyche Technologies",
+        title="ALTIMetrik Technologies",
         default_version='v1',),
     public=True,
     permission_classes=(permissions.AllowAny,),
