@@ -14,3 +14,25 @@ ProductViewSet Class:
 This class extends AltiMetrikViewSet and provides specific functionality for handling product-related requests.
 It defines the initialise_model_name method, which overrides the method from the parent class.
 The dispatch method is overridden to check for the presence of the 'Authorization' header in the request. If the header is missing, it returns a 401 Unauthorized response; otherwise, it proceeds with the request.
+
+// generic get Api requests for viewsets
+
+{
+  "columns": ["name", "price", "category"],
+
+  "filters": [
+    {"field": "price", "value": "10.99"},
+    {"field": "category", "value": "Electronics"}
+  ],
+
+  "order_by": {"field": "price", "order": "desc"},
+
+  "select_related": ["manufacturer", "reviews"],
+
+  "prefetch_related": ["comments"],
+
+  "annotate": {
+    "total_sales": "Sum('sales__quantity')",
+    "average_rating": "Avg('reviews__rating')"
+  }
+}
